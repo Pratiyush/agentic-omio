@@ -48,3 +48,6 @@ HANDOVER.md
 NOTES.md
 TODO.md
 *.private.md
+
+# Reference assets — keep local only, do not publish
+uploads/
