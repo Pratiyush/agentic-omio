@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Agentic Booking OMIO — Walkthrough</title>
+<meta name="description" content="An interactive walkthrough of how Omio shows up across Claude, ChatGPT, and omio.ai — the flagship-vs-distribution thesis, end-to-end." />
+<!-- Open Graph (Facebook, LinkedIn) -->
+<meta property="og:title" content="Agentic Booking OMIO — Walkthrough" />
+<meta property="og:description" content="Three parallel flows: Claude, ChatGPT, omio.ai. Same backend, three presentations, one winner." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://pratiyush1.github.io/agentic-omio-prototype/uploads/Screenshot_20260502_075327_Chrome.jpg" />
+<meta property="og:image:alt" content="Three-way comparison: Claude vs ChatGPT vs omio.ai. Native surface wins on margin, lifecycle, and moat." />
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Agentic Booking OMIO — Walkthrough" />
+<meta name="twitter:description" content="Three parallel flows: Claude, ChatGPT, omio.ai. Same backend, three presentations, one winner." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Instrument+Serif&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
+<style>
+  html, body { margin: 0; padding: 0; min-height: 100%; background: #f0eee9; }
+  body { font-family: "Inter Tight", -apple-system, system-ui, sans-serif; }
+  #root { min-height: 100vh; }
+  /* Loading splash while Babel parses */
+  #boot {
+    position: fixed; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 12px;
+    color: #6f6a62;
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase;
+    pointer-events: none;
+    transition: opacity 0.3s;
+  }
+  #boot.gone { opacity: 0; }
+  #boot::before {
+    content: ''; width: 8px; height: 8px;
+    background: #c46d2e; border-radius: 50%;
+    animation: ws-boot-pulse 1.2s ease-in-out infinite;
+  }
+  @keyframes ws-boot-pulse {
+    0%, 100% { opacity: 0.4; transform: scale(0.85); }
+    50%      { opacity: 1; transform: scale(1.1); }
+  }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<div id="boot">Loading walkthrough…</div>
+
+<!-- Source files (Babel transpiles in-browser) -->
+<script type="text/babel" src="shared.jsx"></script>
+<script type="text/babel" src="ios-frame.jsx"></script>
+<script type="text/babel" src="omio-flow.jsx"></script>
+<script type="text/babel" src="claude-flow.jsx"></script>
+<script type="text/babel" src="chatgpt-flow.jsx"></script>
+<script type="text/babel" src="prototype-shell.jsx"></script>
+
+<!-- Mount -->
+<script type="text/babel">
+  // Wait for all babel scripts to finish (they execute in order, this runs last)
+  ReactDOM.createRoot(document.getElementById('root')).render(<PrototypeShell />);
+  const boot = document.getElementById('boot');
+  if (boot) {
+    boot.classList.add('gone');
+    setTimeout(() => boot.remove(), 350);
+  }
+</script>
+
+<noscript>
+  <div style="padding: 40px; font-family: system-ui;">
+    <h2>JavaScript required</h2>
+    <p>This walkthrough renders React components dynamically. Please enable JavaScript and reload.</p>
+  </div>
+</noscript>
+
+</body>
+</html>
