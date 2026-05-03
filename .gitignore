@@ -1,1 +1,50 @@
+# macOS / OS
 .DS_Store
+.AppleDouble
+__MACOSX
+Thumbs.db
+
+# Editors / IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Node (in case future build steps are added)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Env / secrets — never commit
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.crt
+secrets.json
+
+# Build output
+dist/
+build/
+out/
+.next/
+.cache/
+
+# Logs
+*.log
+logs/
+
+# Backup / temp
+*.bak
+*.orig
+*.tmp
+.tmp/
+
+# Local notes — outreach drafts and playbooks stay private
+HANDOVER.md
+NOTES.md
+TODO.md
+*.private.md
