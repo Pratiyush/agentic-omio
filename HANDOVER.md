@@ -26,7 +26,7 @@ The thesis is in the three-way comparison near the end of the omio.ai flow: *sam
 
 Ten minutes end-to-end. Two minutes if you skip straight to the omio.ai flow and the closer.
 
-Walkthrough: <http://localhost:8765/prototype.html>
+Walkthrough: <https://pratiyush.github.io/agentic-omio/>
 (Local for now — happy to host it for you, or screenshare whenever fits your calendar.)
 
 A small thing, made carefully. Hope it sparks something.
